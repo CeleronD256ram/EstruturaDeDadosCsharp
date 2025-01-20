@@ -1,0 +1,22 @@
+# Arquivos e pastas do Visual Studio
+.vs/
+*.user
+*.suo
+*.vscode/
+
+# Pastas de compilação
+bin/
+obj/
+
+# Arquivos temporários e de log
+*.log
+*.tmp
+*.temp
+
+# Configurações locais do projeto
+*.csproj.user
+*.sln.docstates
+
+# Pacotes NuGet
+packages/
+*.nupkg
