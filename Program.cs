@@ -24,6 +24,10 @@ do
         case 2:
             TestarBubbleSort();
             break;
+        
+        case 3:
+            TestarSelection();
+            break;
 
         case 0:
             Console.WriteLine("Encerrando o programa...");
@@ -44,6 +48,7 @@ void ExibirMenu()
     Console.WriteLine("#########################################################");
     Console.WriteLine("1- QuickSort.");
     Console.WriteLine("2- BubbleSort.");
+    Console.WriteLine("3- SelectionSort.");
     Console.WriteLine("0- Sair.");
     Console.Write("\nDigite o número correspondente: ");
 }
@@ -84,4 +89,25 @@ void TestarBubbleSort()
     Console.WriteLine();
 
 
+}
+
+//testar Selection sort
+void TestarSelection()
+{
+    double[] precos = { 38.50, 45.32, 504.05, 80.99, 725.99, 68.30, 199.99 };
+    
+    Console.WriteLine("\nAntes da ordenação:");
+    foreach (decimal item in precos) { Console.Write(item + " "); }
+    
+    SelectionSort.OrdenarSelection(precos);
+    
+    Console.WriteLine("\n\nArray ordenado:");
+    foreach (decimal item in precos) { Console.Write(item + " "); }
+
+    Console.WriteLine();
+    
+    
+    
+    
+    
 }
