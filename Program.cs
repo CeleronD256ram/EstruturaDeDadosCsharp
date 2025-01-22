@@ -3,10 +3,10 @@
 int opcao;
 do
 {
-    // Exibe o menu principal
+    
     ExibirMenu();
 
-    // Lê a opção do usuário
+
     string entrada = Console.ReadLine();
     if (!int.TryParse(entrada, out opcao) || opcao < 0)
     {
@@ -14,11 +14,15 @@ do
         continue;
     }
 
-    // Chama o método correspondente à opção escolhida
+    
     switch (opcao)
     {
         case 1:
             TestarQuickSort();
+            break;
+        
+        case 2:
+            TestarBubbleSort();
             break;
 
         case 0:
@@ -32,22 +36,20 @@ do
 
 } while (opcao != 0);
 
-/// <summary>
-/// Exibe o menu principal.
-/// </summary>
+
 void ExibirMenu()
 {
     Console.WriteLine("#########################################################");
     Console.WriteLine("         QUAL ESTRUTURA DE DADOS DESEJA TESTAR?          ");
     Console.WriteLine("#########################################################");
     Console.WriteLine("1- QuickSort.");
+    Console.WriteLine("2- BubbleSort.");
     Console.WriteLine("0- Sair.");
     Console.Write("\nDigite o número correspondente: ");
 }
 
-/// <summary>
+
 /// Testa a implementação do QuickSort.
-/// </summary>
 void TestarQuickSort()
 {
     int[] arrayPraTeste = { 21, 12, 43, 0, 5, 21, 7, 654, 54, 80 };
@@ -62,9 +64,24 @@ void TestarQuickSort()
     QuickSort.OrdenarQuickSort(arrayPraTeste, 0, arrayPraTeste.Length - 1);
 
     Console.WriteLine("\n\nArray ordenado:");
-    foreach (var item in arrayPraTeste)
-    {
-        Console.Write(item + " ");
-    }
+    foreach (var item in arrayPraTeste) { Console.Write(item + " "); }
+   
     Console.WriteLine();
+}
+
+//testar bubbleSort
+void TestarBubbleSort()
+{
+    decimal[] precos = { 1238, 50, 504, 80, 725, 50, 68, 190, 90 };
+    Console.WriteLine("\nAntes da ordenação:");
+    foreach (var item in precos) { Console.Write(item + " "); }
+    
+    BubbleSort.OrdenarBubble(precos);
+    
+    Console.WriteLine("\n\nArray ordenado:");
+    foreach (var item in precos) { Console.Write(item + " "); }
+
+    Console.WriteLine();
+
+
 }
