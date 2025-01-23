@@ -9,7 +9,10 @@ public class MergeSort
             int meio = (inicio + fim) / 2;
 
             Msort(array, temp, inicio, meio);
+
+
             Msort(array, temp, meio + 1, fim);
+
 
             Mesclar(array, temp, inicio, meio, fim);
         }
@@ -20,35 +23,35 @@ public class MergeSort
         for (int i = inicio; i <= fim; i++)
         {
             temp[i] = array[i];
-
         }
-        
+
         int esquerda = inicio;
         int direita = meio + 1;
+        int atual = inicio;
 
-        for (int i = inicio; i <= fim; i++)
+        // Comparar elementos das duas sublistas e inserir no array original
+        while (esquerda <= meio && direita <= fim)
         {
-            if (esquerda > direita)
+            if (temp[esquerda] <= temp[direita])
             {
-                array[i] = temp[direita++];
-            }
-            else if (direita > fim)
-            {
-                array[i] = temp[esquerda++];
-            }
-            else if (temp[esquerda] < temp[direita])
-            {
-                array[i] = temp[esquerda++];
+                array[atual] = temp[esquerda];
+                esquerda++;
             }
             else
             {
-                array[i] = temp[direita++];
+                array[atual] = temp[direita];
+                direita++;
             }
-            
+
+            atual++;
         }
 
 
-
+        while (esquerda <= meio)
+        {
+            array[atual] = temp[esquerda];
+            esquerda++;
+            atual++;
+        }
     }
-    
 }
