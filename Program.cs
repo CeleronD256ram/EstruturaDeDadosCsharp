@@ -3,7 +3,6 @@
 int opcao;
 do
 {
-    
     ExibirMenu();
 
 
@@ -14,19 +13,23 @@ do
         continue;
     }
 
-    
+
     switch (opcao)
     {
         case 1:
             TestarQuickSort();
             break;
-        
+
         case 2:
             TestarBubbleSort();
             break;
-        
+
         case 3:
             TestarSelection();
+            break;
+        
+        case 4:
+            TestarMergeSort();
             break;
 
         case 0:
@@ -37,7 +40,6 @@ do
             Console.WriteLine("Opção inválida. Tente novamente.");
             break;
     }
-
 } while (opcao != 0);
 
 
@@ -49,6 +51,7 @@ void ExibirMenu()
     Console.WriteLine("1- QuickSort.");
     Console.WriteLine("2- BubbleSort.");
     Console.WriteLine("3- SelectionSort.");
+    Console.WriteLine("4- MergeSort.");
     Console.WriteLine("0- Sair.");
     Console.Write("\nDigite o número correspondente: ");
 }
@@ -69,8 +72,11 @@ void TestarQuickSort()
     QuickSort.OrdenarQuickSort(arrayPraTeste, 0, arrayPraTeste.Length - 1);
 
     Console.WriteLine("\n\nArray ordenado:");
-    foreach (var item in arrayPraTeste) { Console.Write(item + " "); }
-   
+    foreach (var item in arrayPraTeste)
+    {
+        Console.Write(item + " ");
+    }
+
     Console.WriteLine();
 }
 
@@ -79,35 +85,62 @@ void TestarBubbleSort()
 {
     decimal[] precos = { 1238, 50, 504, 80, 725, 50, 68, 190, 90 };
     Console.WriteLine("\nAntes da ordenação:");
-    foreach (var item in precos) { Console.Write(item + " "); }
-    
+    foreach (var item in precos)
+    {
+        Console.Write(item + " ");
+    }
+
     BubbleSort.OrdenarBubble(precos);
-    
+
     Console.WriteLine("\n\nArray ordenado:");
-    foreach (var item in precos) { Console.Write(item + " "); }
+    foreach (var item in precos)
+    {
+        Console.Write(item + " ");
+    }
 
     Console.WriteLine();
-
-
 }
 
 //testar Selection sort
 void TestarSelection()
 {
     double[] precos = { 38.50, 45.32, 504.05, 80.99, 725.99, 68.30, 199.99 };
-    
+
     Console.WriteLine("\nAntes da ordenação:");
-    foreach (decimal item in precos) { Console.Write(item + " "); }
-    
+    foreach (decimal item in precos)
+    {
+        Console.Write(item + " ");
+    }
+
     SelectionSort.OrdenarSelection(precos);
-    
+
     Console.WriteLine("\n\nArray ordenado:");
-    foreach (decimal item in precos) { Console.Write(item + " "); }
+    foreach (decimal item in precos)
+    {
+        Console.Write(item + " ");
+    }
 
     Console.WriteLine();
-    
-    
-    
-    
-    
+}
+
+void TestarMergeSort()
+{
+    int[] array = { 6, 3, 87, 3, 67, 3, 11 };
+    int[] temp = new int[array.Length];
+
+    Console.WriteLine("\nAntes da ordenação: ");
+    foreach (var item in array)
+    {
+        Console.Write(item + " ");
+    }
+
+    MergeSort.Msort(array, temp, 0, array.Length - 1);
+    Console.WriteLine("\n\nArray ordenado:");
+    foreach (var item in array)
+    {
+        Console.Write(item + " ");
+    }
+
+    Console.WriteLine();
+
 }
